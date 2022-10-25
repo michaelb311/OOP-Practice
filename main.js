@@ -106,7 +106,13 @@ class Home {
     }
 
     removeResident = (resident) => {
-        this.residents.pop(resident)
+        let indexOfResident = this.residents.indexOf(resident);
+        console.log(indexOfResident)
+        if (resident && indexOfResident > -1){
+            this.residents.splice(indexOfResident, 1);
+        } else {
+            console.log(`name doens't match.`);
+        }
     }
 }
 
@@ -126,6 +132,15 @@ house.removeResident(piper);
 
 console.log(house.residents);
 
+house.removeResident(piper);
+
 house.removeResident(michael);
 
 console.log(house.residents);
+
+house.addResident(michael);
+console.log(house.residents);
+
+
+
+
