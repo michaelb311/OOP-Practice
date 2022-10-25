@@ -1,86 +1,131 @@
-// // Factory Function
-// let createCircle = (radius) => {
-//     return {
-//         //properties
-//         radius,
-//         location:{
-//             x: 1,
-//             y: 1
-//         },
-//         //method/behavior || one or more methods are called behaviors
-//         draw: () => {
-//             console.log('draw');
-//         }
-//     };
+// class Person {
+//     constructor(name , age) {
+//         this.name = name
+//         this.age = age
+//     }
 // }
 
-// const circle = createCircle(1);
+// let person = new Person("Michael", 31);
+// console.log(person);
 
-//Constructor Function
-
-
-// function Circle(radius) {
-//     this.radius = radius;
-//     let defaultLocation = { x: 0, y: 0 };
-//     this.getDefaultLocation = () => {
-//     return defaultLocation;
-//    }
-//     this.draw = () => {
-//         console.log('draw');
+// class Person {
+//     constructor(name , age) {
+//         this.name = name
+//         this.age = age
 //     }
 
-//     Object.defineProperty(this, 'defaultLocation', {
-//         get: () => {
-//             return defaultLocation;
-//         }, 
-//         set: (value) => {
-//             if (!value.x || !value.y)
-//                 throw new Error('Invalid Location.');
-//             defaultLocation = value
-//         }
-//     })
+//     getName = () => {
+//         return this.name
+//     }
+//     getAge = () => {
+//         return this.age
+//     }
 // }
 
-// const circle = new Circle(10);
-// circle.defaultLocation = 1;
-// circle.draw();
-// let number = {value: 10};
+// let person = new Person("Michael", 31);
+// console.log(person.getName());
+// console.log(person.getAge());
 
-// function increase(number) {
-//     number.value++;
+// class Person {
+//     constructor(name , age) {
+//         this.name = name;
+//         this.age = age;
+//     }
+
+//     getName = () => {
+//         return this.name
+//     };
+//     getAge = () => {
+//         return this.age
+//     };
 // }
 
-// increase(number);
-// console.log(number);
+// class Home {
+//     constructor(bedrooms, bathrooms, residents) {
+//         this.bedrooms = bedrooms
+//         this.bathrooms = bathrooms
+//         this.residents = residents
+//     }
 
-// function Stopwatch() {
-//     let startTime, endTime, running, duration = 0;
-//     this.start = () => {
-//         if (running)
-//             throw new Error('The stopwatch is already running');
-        
-//         running = true;
-
-//         startTime = new Date();
+//     getBedrooms = () => {
+//         return this.bedrooms;
 //     };
-//     this.stop = () => {
-//         if (!running)
-//             throw new Error('The stopwatch has already stopped');
 
-//         running = false;
-
-//         endTime = new Date();
-//         const seconds = (endTime.getTime() - startTime.getTime()) / 1000;
-//         duration += seconds;
+//     getBathrooms = () => {
+//         return this.bathrooms;
 //     };
-//     this.reset = () => {
-//         startTime = null;
-//         endTime = null;
-//         running = false;
-//         duration = 0;
-//     };
-//     Object.defineProperty(this, 'duration', {
-//         get: () => duration
-//     });
 
-// };
+//     getResidents = () => {
+//         return this.residents;
+//     };
+// }
+
+// let michael = new Person('Michael', 31);
+// let halie = new Person('Halie', 27);
+
+
+// let house = new Home(5, 3.5, [michael, halie]);
+
+// console.log(house.getResidents());
+
+class Person {
+    constructor(name , age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    getName = () => {
+        return this.name
+    };
+    getAge = () => {
+        return this.age
+    };
+}
+
+class Home {
+    constructor(bedrooms, bathrooms, residents) {
+        this.bedrooms = bedrooms
+        this.bathrooms = bathrooms
+        this.residents = residents
+    }
+
+    getBedrooms = () => {
+        return this.bedrooms;
+    };
+
+    getBathrooms = () => {
+        return this.bathrooms;
+    };
+
+    getResidents = () => {
+        return this.residents;
+    };
+
+    addResident = (resident) => {
+        this.residents.push(resident);
+    }
+
+    removeResident = (resident) => {
+        this.residents.pop(resident)
+    }
+}
+
+let michael = new Person('Michael', 31);
+let halie = new Person('Halie', 27);
+let piper = new Person('Piper', 19);
+
+let house = new Home(5, 3.5, [michael, halie]);
+
+console.log(house.getResidents());
+
+house.addResident(piper);
+
+console.log(house.residents);
+
+house.removeResident(piper);
+
+console.log(house.residents);
+
+house.removeResident(michael);
+
+console.log(house.residents);
