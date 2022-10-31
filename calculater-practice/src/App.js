@@ -13,6 +13,7 @@ export const ACTIONS = {
 
 function reducer(state, { type, payload }) {
   switch (type) {
+    default: return state
     case ACTIONS.ADD_DIGIT: 
       if (state.overwrite){
         return{
